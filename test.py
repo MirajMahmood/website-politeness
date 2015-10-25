@@ -41,6 +41,6 @@ if __name__ == '__main__':
     treepack = classify("The request comes here. Pass it to the TreeMaker.")
 
     if gateway.get_field(treepack, 'count') == 1:
-        # Some way to deal with this
+        # TODO: Build a tree and send it for classification
     elif gateway.get_field(treepack, 'count') == 2:
-        # Some way to deal with this
+        # TODO: Build a request and send it for classification
