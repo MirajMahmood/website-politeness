@@ -455,3 +455,29 @@ class Model:
             return Model.word_to_vec[word]
         else:
             return Model.word_to_vec['unknown']
+
+    """
+    Methods for the website prediction
+    A little duplication but I didn't want to mess up the main code
+    """
+    def predict_tree(self, tree):
+        """
+        Calls forward prop and calculates predictions from the tree root
+        Copy of the original calc_outputs that worked on trees
+        """
+        output_vec = self.forward(tree.root)
+        return softmax(np.dot(self.ws, concat_with_bias(output_vec)))
+
+    def predict_request(self, request):
+        """
+        Copy of calc_outputs that works for requests
+        """
+        output_vec = self.forward(request.trees[0].root)
+        request.trees[0].predictions = softmax(np.dot(self.ws, concat_with_bias(output_vec)))
+
+        output_vec = self.forward(request.trees[1].root)
+        request.trees[1].predictions = softmax(np.dot(self.ws, concat_with_bias(output_vec)))
+
+        # Combine predictions
+        request.combine_scores()
+        return request.request_prediction

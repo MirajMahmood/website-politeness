@@ -36,14 +36,18 @@ public class TreeMaker {
         // Fetch the trees
         List<CoreMap> sentences;
         sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+        Tree temp;
         if(sentences.size() == 1){
             ret.count = 1;
-            ret.first = sentences.get(0).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class).toString();
+            temp = sentences.get(0).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class);
+            ret.first = collapser.transformTree(temp).toString();
         }
         else if(sentences.size() == 2){
             ret.count = 2;
-            ret.first = sentences.get(0).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class).toString();
-            ret.second = sentences.get(1).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class).toString();
+            temp = sentences.get(0).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class);
+            ret.first = collapser.transformTree(temp).toString();
+            temp = sentences.get(1).get(TreeCoreAnnotations.BinarizedTreeAnnotation.class);
+            ret.second = collapser.transformTree(temp).toString();
         }
 
         return ret;
