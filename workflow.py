@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import cPickle
 
 from py4j.java_gateway import JavaGateway
@@ -17,7 +17,8 @@ sys.modules['request'] = rnn.request
 sys.modules['Tree'] = rnn.Tree
 sys.modules['Node'] = rnn.Node
 
-def classify(text):
+def classify(text, RNN):
+
     # Make a gateway, end the text and get back a Treepack object
     connection = JavaGateway()
     treepack = connection.entry_point.parse(text)
@@ -36,7 +37,7 @@ def classify(text):
 
         prediction_vector = RNN.predict_tree(tree)
         print prediction_vector
-        return prediction_vector
+
     elif treecount == 2:
         # Make a request for classification. Note: request = 2 trees
         print 'Making request...'
@@ -48,11 +49,12 @@ def classify(text):
 
         prediction_vector = RNN.predict_request(request)
         print prediction_vector
-        return prediction_vector
+        
     else:
         # Probably return some kind of error to the client
-        pass
-        return None
+        prediction_vector = None
+
+    return prediction_vector
 
 def load_model(model_pickle, vectors_pickle):
     # Load hyperparameters
@@ -64,11 +66,13 @@ def load_model(model_pickle, vectors_pickle):
         Model.word_to_vec = cPickle.load(pickle_file)
 
     return RNN
-
+'''
 if __name__ == '__main__':
     model_pickle = "rnn/rnn.pickle"
     vectors_pickle = "rnn/vectors_100d.pickle"
 
     RNN = load_model(model_pickle, vectors_pickle)
 
-    treepack = classify("The request comes here. Pass it to the TreeMaker.")
+    treepack = classify("The request comes here. Pass it to the TreeMaker.", RNN)
+
+'''

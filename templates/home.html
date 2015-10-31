@@ -2,7 +2,11 @@
 
 {% block content %}
 
-
+<script>
+   function display_feedback_form(){
+    document.getElementById('feedback').style.display = 'block';
+    }
+</script>
 <form action="" method="post" class="polite_form">
 		{{form.hidden_tag()}}
 	
@@ -21,9 +25,40 @@
      
      <label>
         <span>&nbsp;</span> 
-        {{form.submit(class="button")}}    </label>    
+        {{form.submit(class="button")}}    
+    
+    </label>     
+
+    <label>
+    {% if feedback_form%}
+        <span>&nbsp;</span> 
+        <button class="button" id="give_feedback" onClick="display_feedback_form();" type="button" > Correct us? </button>
+    {%endif%}
+    </label>
 </form>
 
+
+{% if feedback_form%}
+<div id="feedback" style='display: none;'>
+<form action="" method="get" class="polite_form">
+        {{feedback_form.hidden_tag()}}
+    
+    <label>
+        <span>{{feedback_form.feedback_classification.label}}</span>
+        {{feedback_form.feedback_classification }}
+    </label>
+     
+     <label>
+        <span>&nbsp;</span> 
+        {{feedback_form.submit(class="button")}}    
+    
+    </label>    
+
+
+</form>
+
+</div>
+{%endif%}
 <center>
 
 	{%if form.errors%}
