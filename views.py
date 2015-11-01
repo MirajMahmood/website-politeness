@@ -8,10 +8,10 @@ from forms import *
 def home_page():
 	form = classifyForm()
 	feedback_form = feedbackForm()
-	
+
 	if request.method =='POST':
 		if form.validate_on_submit():
-			class_ = classify(str(form.sentence.data), RNN)
+			class_ = classify(str(form.sentence.data.lower()), RNN)
 			if class_ is not None:
 				if class_[0]>class_[1]:
 					form.score.data = "impolite"
