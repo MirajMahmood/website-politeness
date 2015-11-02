@@ -1,5 +1,6 @@
 import sys, os
 import cPickle
+import csv
 
 from py4j.java_gateway import JavaGateway
 import py4j.java_gateway as gateway
@@ -49,12 +50,16 @@ def classify(text, RNN):
 
         prediction_vector = RNN.predict_request(request)
         print prediction_vector
-        
+
     else:
         # Probably return some kind of error to the client
         prediction_vector = None
 
     return prediction_vector
+
+# Keep file open in append mode, this should happen every time the server starts
+fh = open('recorded_data.csv', 'a')
+writer = csv.writer(fh)
 
 def load_model(model_pickle, vectors_pickle):
     # Load hyperparameters
@@ -66,13 +71,19 @@ def load_model(model_pickle, vectors_pickle):
         Model.word_to_vec = cPickle.load(pickle_file)
 
     return RNN
+
+def record_feedback(text, label):
+    # Keep a file open in append mode and just write to it
+    global writer
+    try:
+        writer.writerow([text, label])
+    except:
+        # TODO: Add some kind of logging here
+        print "Couldn't write to file."
+
 '''
+# Testing testing
 if __name__ == '__main__':
-    model_pickle = "rnn/rnn.pickle"
-    vectors_pickle = "rnn/vectors_100d.pickle"
-
-    RNN = load_model(model_pickle, vectors_pickle)
-
-    treepack = classify("The request comes here. Pass it to the TreeMaker.", RNN)
-
+    record_feedback("What is up with you?", 0)
+    record_feedback("Could you please help me out, with this?", 1)
 '''
