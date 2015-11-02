@@ -4,5 +4,5 @@
 *.iml
 .idea
 */out
-*/stanford-corenlp-full/*
+WebBackendParser/src/stanford-corenlp-full/
 */.idea
