@@ -23,5 +23,5 @@ def home_page():
 	return render_template("home.html", form=form, feedback_form=None)
 
 @app.route('/test/') #/test/ will lead urls /test & /test/
-def test():
+def feedback():
 	return render_template("test.html")

@@ -12,5 +12,6 @@ class classifyForm(Form):
 
 class feedbackForm(Form):
 
-	feedback_classification = StringField("Classification :")
-	submit = SubmitField("Okay!")
+	polite_button = SubmitField("Polite")
+	neutral_button = SubmitField("Neutral")
+	impolite_button = SubmitField("Impolite")

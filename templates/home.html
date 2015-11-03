@@ -33,32 +33,25 @@
     {% if feedback_form%}
         <span>&nbsp;</span> 
         <button class="button" id="give_feedback" onClick="display_feedback_form();" type="button" > Correct us? </button>
+        {% if feedback_form%}
+        <div class="feedback" id='feedback' style='display: none;'>
+            <center>
+            <br>
+                {{feedback_form.hidden_tag()}}
+
+                {{feedback_form.polite_button(class='feedback_button', style='background-color: #0CB40C;') }}
+                {{feedback_form.neutral_button(class='feedback_button', style='background-color: #ffb515;') }}
+                {{feedback_form.impolite_button(class='feedback_button', style='background-color: #e33100;') }}
+            </center>
+
+        </div>
+        {%endif%}
     {%endif%}
     </label>
 </form>
 
 
-{% if feedback_form%}
-<div id="feedback" style='display: none;'>
-<form action="" method="get" class="polite_form">
-        {{feedback_form.hidden_tag()}}
-    
-    <label>
-        <span>{{feedback_form.feedback_classification.label}}</span>
-        {{feedback_form.feedback_classification }}
-    </label>
-     
-     <label>
-        <span>&nbsp;</span> 
-        {{feedback_form.submit(class="button")}}    
-    
-    </label>    
 
-
-</form>
-
-</div>
-{%endif%}
 <center>
 
 	{%if form.errors%}

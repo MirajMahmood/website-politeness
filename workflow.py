@@ -57,9 +57,7 @@ def classify(text, RNN):
 
     return prediction_vector
 
-# Keep file open in append mode, this should happen every time the server starts
-fh = open('recorded_data.csv', 'a')
-writer = csv.writer(fh)
+
 
 def load_model(model_pickle, vectors_pickle):
     # Load hyperparameters
@@ -72,9 +70,8 @@ def load_model(model_pickle, vectors_pickle):
 
     return RNN
 
-def record_feedback(text, label):
+def record_feedback(text, label, writer):
     # Keep a file open in append mode and just write to it
-    global writer
     try:
         writer.writerow([text, label])
     except:
