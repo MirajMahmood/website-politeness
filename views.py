@@ -14,10 +14,10 @@ def home_page():
 			class_ = classify(str(form.sentence.data.lower()), RNN)
 			if class_ is not None:
 				if class_[0]>class_[1]:
-					form.score.data = "impolite"
+					form.score.data = "Impolite"
 					return render_template("home.html", form=form, feedback_form=feedback_form, color='#e33100')
 				else:
-					form.score.data = "polite"
+					form.score.data = "Polite"
 					return render_template("home.html", form=form, feedback_form=feedback_form, color='#0CB40C')
 			else:
 				form.score.data = "error"

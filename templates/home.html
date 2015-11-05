@@ -17,15 +17,21 @@
         <span>{{form.sentence.label}}</span>
         {{form.sentence}}
     </label>
-    
     <label>
+
+    {%if form.score.data == "Polite"%}
         <span>{{form.score.label}} </span>
-        {{form.score}}
-        <input style="width:10px;height:10px;border-radius:50px;background:linear-gradient(to bottom, {{color}}, {{color}})" type="text" value="">
+        
+            <input class="feedback_button" id="polite_button" name="polite_button" style="background-color: #0CB40C;" type="button" value="Polite">
+    {%elif form.score.data == "Impolite"%}
+    <span>{{form.score.label}} </span>
+        
+            <input class="feedback_button" id="polite_button" name="polite_button" style="background-color: #e33100;" type="button" value="Impolite">
+    {%else%}
+    <span>&nbsp;</span> 
+    {%endif%}
+        
      </label>
-     
-     <label>
-        <span>&nbsp;</span> 
         {{form.submit(class="button")}}   
     
     </label>     
