@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired
 
 class classifyForm(Form):
 	sentence = TextAreaField("Sentence :", validators=[DataRequired()])
-	score = StringField("Score :")
+	score = StringField("Classification :")
 	submit = SubmitField("Classify")
 	give_feedback = SubmitField("Correct us?")
 

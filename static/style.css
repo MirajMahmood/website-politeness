@@ -1,6 +1,7 @@
 html, body{
 	background-color: white;
 }
+
 .polite_form {
     margin-left: auto;
     margin-right: auto;
@@ -91,9 +92,12 @@ html, body{
     text-decoration: none;
     text-shadow: 0 -1px 1px #222;
     border: none;
+    background-color: #0CB40C;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+    -webkit-box-shadow:1px 1px 1px #3D3D3D;
+    -moz-box-shadow:1px 1px 1px #3D3D3D;
     
 
 }

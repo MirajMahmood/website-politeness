@@ -15,12 +15,14 @@ def home_page():
 			if class_ is not None:
 				if class_[0]>class_[1]:
 					form.score.data = "impolite"
+					return render_template("home.html", form=form, feedback_form=feedback_form, color='#e33100')
 				else:
 					form.score.data = "polite"
+					return render_template("home.html", form=form, feedback_form=feedback_form, color='#0CB40C')
 			else:
 				form.score.data = "error"
-			return render_template("home.html", form=form, feedback_form=feedback_form)
-	return render_template("home.html", form=form, feedback_form=None)
+			return render_template("home.html", form=form, feedback_form=feedback_form, color='#40b3ff')
+	return render_template("home.html", form=form, feedback_form=None, color='#40b3ff')
 
 @app.route('/test/') #/test/ will lead urls /test & /test/
 def feedback():
