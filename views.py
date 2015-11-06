@@ -1,8 +1,15 @@
-
+from __future__ import division
 from _init_ import *
 from forms import *
 
 
+def classify_politeness(vector):
+	if abs(vector[0]-vector[1]) <0.21:
+		return "Neutral"
+	elif vector[0]>vector[1]:
+		return "Impolite"
+	else:
+		return "Polite"
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -10,17 +17,30 @@ def home_page():
 	feedback_form = feedbackForm()
 
 	if request.method =='POST':
-		if form.validate_on_submit():
-			class_ = classify(str(form.sentence.data.lower()), RNN)
-			if class_ is not None:
-				if class_[0]-class_[1] <0.21:
-					form.score.data = "Neutral"
-				elif class_[0]>class_[1]:
-					form.score.data = "Impolite"
-				else:
-					form.score.data = "Polite"
+		class_ = classify(str(form.sentence.data.lower()), RNN)
+
+		if class_ is not None:
+			form.score.data = classify_politeness(class_)
 			
-			return render_template("home.html", form=form, feedback_form=feedback_form)
+		else:
+			class_ = [0,0]
+			for i in form.sentence.data.split('.'):
+				res = classify(str(form.sentence.data.lower()), RNN)
+				class_[0] += res[0]
+				class_[1] += res[1]
+
+			sen_len = form.sentence.data.split('.')
+			try:
+				class_[0] /= sen_len
+				class_[1] /= sen_len
+			except:
+				#if the sentence length is 0 then class_ should be [0,0] which it already is 
+				pass
+
+			form.score.data = classify_politeness(class_)
+		
+		return render_template("home.html", form=form, feedback_form=feedback_form)
+
 	return render_template("home.html", form=form, feedback_form=None, color='#40b3ff')
 
 
