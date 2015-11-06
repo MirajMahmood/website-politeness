@@ -25,9 +25,10 @@ def home_page():
 		else:
 			class_ = [0,0]
 			for i in form.sentence.data.split('.'):
-				res = classify(str(form.sentence.data.lower()), RNN)
-				class_[0] += res[0]
-				class_[1] += res[1]
+				if i != "":
+					res = classify(i, RNN)
+					class_[0] += res[0]
+					class_[1] += res[1]
 
 			sen_len = form.sentence.data.split('.')
 			try:

@@ -8,9 +8,9 @@ def run_java():
 	os.system("java -cp ':./WebBackendParser/src/:./WebBackendParser/src/stanford-corenlp-full/*:./WebBackendParser/src/py4j0.9.jar:' TreeMaker")
 
 
-#thr = threading.Thread(target=run_java)
-#thr.daemon = True
-#thr.start()
+thr = threading.Thread(target=run_java)
+thr.daemon = True
+thr.start()
 
-app.run(debug=True)
-#thr.exit()
+app.run()
+thr.exit()
