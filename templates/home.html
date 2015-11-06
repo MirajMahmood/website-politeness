@@ -9,9 +9,9 @@
 </script>
 <form action="" method="post" class="polite_form">
 		{{form.hidden_tag()}}
-	
-			
-		
+
+
+
     <h1>Politeness Classifier </h1>
     <label>
         <span>{{form.sentence.label}}</span>
@@ -21,30 +21,30 @@
 
     {%if form.score.data == "Polite"%}
         <span>{{form.score.label}} </span>
-        
+
             <input class="feedback_button" id="polite_button" name="polite_button" style="background-color: #0CB40C;" type="button" value="Polite">
     {%elif form.score.data == "Impolite"%}
         <span>{{form.score.label}} </span>
-        
+
             <input class="feedback_button" id="impolite_button" name="impolite_button" style="background-color: #e33100;" type="button" value="Impolite">
     {%elif form.score.data == "Neutral"%}
         <span>{{form.score.label}} </span>
-        
+
             <input class="feedback_button" id="neutral_button" name="neutral_button" style="background-color: #ffb515;" type="button" value="Neutral">
-    
+
     {%else%}
-        <span>&nbsp;</span> 
+        <span>&nbsp;</span>
     {%endif%}
-        
+
      </label>
-        {{form.submit(class="button")}}   
-    
-    </label>     
+        {{form.submit(class="button")}}
+
+    </label>
 
     <label>
     </form>
     {% if feedback_form%}
-        <span>&nbsp;</span> 
+        <span>&nbsp;</span>
         <button class="button" id="give_feedback" onClick="display_feedback_form();" type="button" > Correct us? </button>
         {% if feedback_form%}
         <div class="feedback" id='feedback' style='display: none;'>

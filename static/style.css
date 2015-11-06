@@ -59,7 +59,7 @@ html, body{
     background: #DFDFDF url('down-arrow.png') no-repeat right;
     background: #DFDFDF url('down-arrow.png') no-repeat right;
     appearance:none;
-    -webkit-appearance:none; 
+    -webkit-appearance:none;
     -moz-appearance: none;
     text-indent: 0.01px;
     text-overflow: '';
@@ -86,6 +86,7 @@ html, body{
     box-shadow: 1px 1px 1px #3D3D3D;
     -webkit-box-shadow:1px 1px 1px #3D3D3D;
     -moz-box-shadow:1px 1px 1px #3D3D3D;
+		margin-top: 2px;
 }
 .feedback_button {
     color: #fff;
@@ -98,8 +99,6 @@ html, body{
     -webkit-border-radius: 4px;
     -webkit-box-shadow:1px 1px 1px #3D3D3D;
     -moz-box-shadow:1px 1px 1px #3D3D3D;
-    
-
 }
 .polite_form .button:hover {
     color: #333;
