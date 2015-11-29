@@ -1,5 +1,6 @@
 html, body{
 	background-color: white;
+	font-family: 'Helvetica Neue';
 }
 
 .polite_form {
@@ -103,4 +104,17 @@ html, body{
 .polite_form .button:hover {
     color: #333;
     background-color: #EBEBEB;
+}
+
+.profile_links{
+	position: absolute;
+	bottom: 10px;
+	right: 50px;
+}
+
+.profile{
+	display: inline-block;
+	color: #67818A;
+	font-size: 11px;
+	margin-left: 5px;
 }
