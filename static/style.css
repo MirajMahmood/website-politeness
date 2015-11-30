@@ -118,3 +118,19 @@ html, body{
 	font-size: 11px;
 	margin-left: 5px;
 }
+
+.team_member{
+	margin: 10px;
+	width: 50%;
+}
+
+.team_member div{
+	margin-left: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.profile_picture img{
+	height: 200px;
+	width: 200px;
+}
