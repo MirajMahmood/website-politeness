@@ -1,10 +1,6 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="../static/style.css">
-        <title>
-            About the Project
-        </title>
-    </head>
+{% extends "base.html" %}
+
+{% block content %}
 
     <body>
         <div id="project_info">
@@ -25,7 +21,7 @@
         <div class="team_member_profiles">
             <div class="team_member">
                 <div class="profile_picture">
-                    <img src="../static/images/Colors.jpg"/>
+                    <img src="{{ url_for('static', filename='images/Colors.jpg') }}"/>
                 </div>
                 <div class="team_member_info">
                     <h4>Miraj Mahmood</h4>
@@ -37,7 +33,7 @@
 
             <div class="team_member">
                 <div class="profile_picture">
-                    <img src="../static/images/Colors.jpg"/>
+                    <img src="{{ url_for('static', filename='images/Colors.jpg') }}"/>
                 </div>
                 <div class="team_member_info">
                     <h4>Muhammad Ali</h4>
@@ -49,7 +45,7 @@
 
             <div class="team_member">
                 <div class="profile_picture">
-                    <img src="../static/images/Colors.jpg"/>
+                    <img src="{{ url_for('static', filename='images/Colors.jpg') }}"/>
                 </div>
                 <div class="team_member_info">
                     <h4>Raza Ahmad</h4>
@@ -61,7 +57,7 @@
 
             <div class="team_member">
                 <div class="profile_picture">
-                    <img src="../static/images/Colors.jpg"/>
+                    <img src="{{ url_for('static', filename='images/Colors.jpg') }}"/>
                 </div>
                 <div class="team_member_info">
                     <h4>Mehvish Saleem</h4>
@@ -73,4 +69,5 @@
         </div>
     </body>
 
-</html>
+
+{% endblock %}

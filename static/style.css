@@ -1,6 +1,23 @@
 html, body{
-	background-color: white;
-	font-family: 'Helvetica Neue';
+    background-color: white;
+    font-family: 'Helvetica Neue';
+	
+}
+html{
+	height: 100%;
+	position: relative;
+}
+body{
+	background-color: rgba(107, 107, 96, 0.07);
+    margin-left: 5%;
+    margin-right: 5%;
+	min-height: 100%;
+    margin-bottom: 50px;
+  
+  min-height: 650px;
+  height: auto !important;
+  position: relative;
+ 
 }
 
 .polite_form {
@@ -87,7 +104,7 @@ html, body{
     box-shadow: 1px 1px 1px #3D3D3D;
     -webkit-box-shadow:1px 1px 1px #3D3D3D;
     -moz-box-shadow:1px 1px 1px #3D3D3D;
-		margin-top: 2px;
+        margin-top: 2px;
 }
 .feedback_button {
     color: #fff;
@@ -107,30 +124,28 @@ html, body{
 }
 
 .profile_links{
-	position: absolute;
-	bottom: 10px;
-	right: 50px;
+    position: absolute;
+  bottom: -40px;
 }
-
 .profile{
-	display: inline-block;
-	color: #67818A;
-	font-size: 11px;
-	margin-left: 5px;
+    display: inline-block;
+    color: #67818A;
+    font-size: 11px;
+    margin-left: 5px;
 }
 
 .team_member{
-	margin: 10px;
-	width: 50%;
+    margin: 10px;
+    width: 50%;
 }
 
 .team_member div{
-	margin-left: 5px;
-	display: inline-block;
-	vertical-align: top;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .profile_picture img{
-	height: 200px;
-	width: 200px;
+    height: 200px;
+    width: 200px;
 }

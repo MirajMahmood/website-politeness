@@ -1,13 +1,15 @@
+<!DOCTYPE html>
 <html>
   <head>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <title>RNN Politeness Classification</title>
+  <title>RNN Politeness Classification</title>  
+  <a class="profile" href="{{url_for('.home_page')}}">Home</a>
+  <a class="profile" href="{{url_for('.about')}}">About</a>
   </head>
   <body>
 
     {% block content %}{% endblock %}
-  </body>
-  <div class="profile_links">
+    <div class="profile_links">
       <a class="profile" target="_blank" href="http://twitter.com/MirajYaqub">Miraj Mahmood</a>
       <a class="profile" target="_blank" href="http://newt.itu.edu.pk/ali.php">Muhammad Ali</a>
       <a class="profile" target="_blank" href="http://razaahmad.org">Raza Ahmad</a>
@@ -15,4 +17,6 @@
           Mehvish Saleem
       </a>
   </div>
-</html>
+
+  </body>
+    </html>

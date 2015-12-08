@@ -62,6 +62,8 @@ def feedback():
 
 	record_feedback(text, label, writer)
 	return "Thank you for your feedback"
-@app.route('/test/') #/test/ will lead urls /test & /test/
-def test():
-	return render_template("test.html")
+
+
+@app.route('/about/')
+def about():
+	return render_template("about.html")
